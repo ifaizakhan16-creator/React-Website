@@ -11,7 +11,7 @@ import FAQ from './components/FAQ';
 import Requests from './components/Requests';
 import RequestHistory from './components/RequestHistory';
 import ReviewReport from './components/ReviewReport';
-import Chatroom from './components/Chatroom';
+import ChatRoom from './components/ChatRoom';
 import ProfileSettings from './components/ProfileSettings';
 import Auth from './components/Auth';
 import NotFound from './components/NotFound';
