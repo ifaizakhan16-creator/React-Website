@@ -107,7 +107,7 @@ function App() {
           />
           
           <Route path="review-report/:id" element={<ReviewReport />} />
-          <Route path="chatroom" element={<Chatroom />} />
+          <Route path="chatRoom" element={<ChatRoom />} />
           <Route path="profile" element={<ProfileSettings />} />
           <Route path="auth" element={<Auth onAuthSuccess={handleAuthSuccess} />} />
 
