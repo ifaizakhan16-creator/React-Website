@@ -44,7 +44,7 @@ const FAQ = () => {
     const email = e.target[0].value;
     const message = e.target[1].value;
 
-    const res = await axios.post("${import.meta.env.VITE_API_URL}/api/contact", {
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, {
       email,
       message
     });

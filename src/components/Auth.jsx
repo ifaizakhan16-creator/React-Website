@@ -25,7 +25,7 @@ const Auth = ({ onAuthSuccess }) => {
 
     try {
       if (mode === "login") {
-        const res = await axios.post("${import.meta.env.VITE_API_URL}/api/login", {
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, {
           email: formData.email,
           password: formData.password
         });
@@ -39,7 +39,7 @@ const Auth = ({ onAuthSuccess }) => {
           navigate("/browse");
         }
       } else {
-        const res = await axios.post("${import.meta.env.VITE_API_URL}/api/register", {
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/register`, {
           name: formData.name,
           email: formData.email,
           password: formData.password
