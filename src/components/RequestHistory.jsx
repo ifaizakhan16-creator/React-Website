@@ -11,7 +11,7 @@ const RequestHistory = () => {
     const fetchHistory = async () => {
       try {
         const res = await fetch(
-          `import.meta.env.VITE_API_URL/api/request/messages/${email}`
+          `${import.meta.env.VITE_API_URL}/api/request/messages/${email}`
         );
 
         const data = await res.json();
@@ -27,7 +27,7 @@ const RequestHistory = () => {
 
   const onRestore = async (id) => {
     try {
-      await fetch(`import.meta.env.VITE_API_URL/api/request/undo/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/request/undo/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

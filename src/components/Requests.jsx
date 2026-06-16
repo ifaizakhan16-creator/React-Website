@@ -35,7 +35,7 @@ const Requests = ({ addToHistory }) => {
 
   const handleAction = async (req, action) => {
   try {
-    const res = await fetch(`import.meta.env.VITE_API_URL/api/request/${req._id}`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/request/${req._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

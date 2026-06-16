@@ -36,7 +36,7 @@ const ProfileSettings = () => {
     }
 
     const res = await axios.put(
-  `import.meta.env.VITE_API_URL/api/profile-setup/${userId}`,
+  `${import.meta.env.VITE_API_URL}/api/profile-setup/${userId}`,
   {
     skillHave: user.skillsHave,
     skillWant: user.skillsWant,
