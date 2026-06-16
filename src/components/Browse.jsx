@@ -19,7 +19,7 @@ const Browse = () => {
     ];
     
     
-  fetch('http://localhost:5000/api/browse')
+  fetch('import.meta.env.VITE_API_URL/api/browse')
     .then(res => res.json())
     .then(data => {
       setPosts(data.users);

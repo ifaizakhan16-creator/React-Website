@@ -15,7 +15,7 @@ const Requests = ({ addToHistory }) => {
   const fetchRequests = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/request/inbox/${email}`
+        `http:///api/request/inbox/${email}`
       );
 
       const data = await res.json();
@@ -35,7 +35,7 @@ const Requests = ({ addToHistory }) => {
 
   const handleAction = async (req, action) => {
   try {
-    const res = await fetch(`http://localhost:5000/api/request/${req._id}`, {
+    const res = await fetch(`import.meta.env.VITE_API_URL/api/request/${req._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
