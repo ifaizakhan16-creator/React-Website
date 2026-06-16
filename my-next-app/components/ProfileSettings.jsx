@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -26,37 +25,10 @@ const ProfileSettings = () => {
     setUser(prev => ({ ...prev, [field]: value }));
   };
 
- const handleSave = async () => {
-  try {
-    const userId = localStorage.getItem("userId");
-
-    if (!userId) {
-      alert("User ID missing. Please login again.");
-      return;
-    }
-
-    const res = await axios.put(
-  `http://localhost:5000/api/profile-setup/${userId}`,
-  {
-    skillHave: user.skillsHave,
-    skillWant: user.skillsWant,
-    rate: user.hourlyRate,
-    address: user.address,
-    qualification: user.qualification,
-    isPro: user.isPro,
-    hourlyRate: user.hourlyRate,
-    proBio: user.proBio
-  }
-);
-
-    alert("Profile saved successfully!");
-    console.log(res.data);
-
-  } catch (err) {
-    console.log("ERROR:", err.response?.data || err.message);
-    alert(err.response?.data?.message || "Save failed");
-  }
-};
+  const handleSave = () => {
+    localStorage.setItem('user', JSON.stringify(user));
+    setEditSection(null);
+  };
 
   return (
     <div className="min-h-screen bg-[#fcfdfe] pt-32 pb-20 px-6 relative">

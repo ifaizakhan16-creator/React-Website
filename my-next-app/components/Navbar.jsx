@@ -22,8 +22,7 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
   }, [isLoggedIn]);
 
   return (
-    /* Changed py-6 to py-4 and streamlined the wrapper to overlay seamlessly without creating layout gaps */
-    <nav className="fixed top-0 left-0 w-full z-[100] bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 sm:px-8 lg:px-16 py-4">
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-white/80 backdrop-blur-md border-b border-slate-100 px-8 py-6">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         
         <Link to="/" className="text-2xl font-black italic tracking-tighter text-slate-900">
@@ -43,7 +42,7 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
           {!isLoggedIn ? (
             <div className="flex items-center gap-8">
               <Link to="/auth" state={{ mode: 'login' }} className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Login</Link>
-              <Link to="/auth" state={{ mode: 'signup' }}>
+              <Link to="/auth" state={{ mode: 'account' }}>
                 <button className="px-8 py-3 bg-slate-900 text-white rounded-xl font-black text-[9px] uppercase tracking-[0.2em] shadow-xl hover:bg-indigo-600 transition-all">
                   Account
                 </button>

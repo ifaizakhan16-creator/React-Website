@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -9,36 +8,20 @@ const UserProfile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Mock Data: In your real app, this would come from an API based on 'id'
-  const [userData, setUserData] = useState(null);
-
-useEffect(() => {
-  const fetchUser = async () => {
-    try {
-      const res = await axios.get(
-        `http://localhost:5000/api/user/${id}`
-      );
-
-      setUserData(res.data.user);
-    } catch (error) {
-      console.log(error);
-    }
+  const userData = {
+    username: "alex_dev",
+    name: "Alex Rivera",
+    role: "Full Stack Master",
+    bio: "Specializing in visual logic and architectural UI. Looking to swap high-end React knowledge for advanced Japanese or Guitar.",
+    skillsHave: ["React", "Tailwind CSS", "Framer Motion"],
+    skillsWant: ["Japanese", "Guitar"],
+    location: "Stockholm, SE"
   };
-
-  fetchUser();
-}, [id]);
 
   const handleSendRequest = () => {
     // Here you would normally trigger your backend logic
     setIsModalOpen(true);
   };
-
-  if (!userData) {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      Loading...
-    </div>
-  );
-}
 
   return (
     <div className="min-h-screen bg-[#f8faff] pt-32 pb-20 px-6 md:px-20 relative">
@@ -109,7 +92,7 @@ useEffect(() => {
             {/* Left Column: Avatar */}
             <div className="flex flex-col items-center lg:items-start">
               <div className="w-48 h-48 bg-slate-900 rounded-[3rem] flex items-center justify-center text-white text-6xl font-black shadow-2xl mb-8">
-                {userData.name?.charAt(0).toUpperCase()}
+                {userData.username.charAt(0).toUpperCase()}
               </div>
               <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em] mb-2 text-center lg:text-left w-full">
                 Asset ID: 2026-X{id}
@@ -124,10 +107,10 @@ useEffect(() => {
             <div className="lg:col-span-2 space-y-12">
               <div className="space-y-4">
                 <h1 className="text-6xl font-black text-slate-900 italic tracking-tighter leading-none">
-                   @{userData.name?.toLowerCase()}
+                   @{userData.username.toLowerCase()}
                 </h1>
                 <p className="text-xl text-slate-500 font-bold italic leading-relaxed max-w-xl">
-                  "{userData.proBio}"
+                  "{userData.bio}"
                 </p>
               </div>
 
@@ -135,7 +118,7 @@ useEffect(() => {
                 <div className="space-y-6">
                   <p className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.4em]">Knowledge Assets</p>
                   <div className="flex flex-wrap gap-3">
-                    {userData.skillHave?.map(s => (
+                    {userData.skillsHave.map(s => (
                       <span key={s} className="px-5 py-3 bg-indigo-50 text-indigo-700 rounded-2xl font-black text-[10px] uppercase tracking-widest border border-indigo-100">{s}</span>
                     ))}
                   </div>
@@ -144,7 +127,7 @@ useEffect(() => {
                 <div className="space-y-6">
                   <p className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em]">Target Learning</p>
                   <div className="flex flex-wrap gap-3">
-                    {userData.skillWant?.map(s => (
+                    {userData.skillsWant.map(s => (
                       <span key={s} className="px-5 py-3 bg-amber-50 text-amber-700 rounded-2xl font-black text-[10px] uppercase tracking-widest border border-amber-100">{s}</span>
                     ))}
                   </div>

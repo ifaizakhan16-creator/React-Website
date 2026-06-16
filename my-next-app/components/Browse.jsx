@@ -18,19 +18,26 @@ const Browse = () => {
       { have: "Chess", want: "Japanese" }
     ];
     
-    
-  fetch('http://localhost:5000/api/browse')
-    .then(res => res.json())
-    .then(data => {
-      setPosts(data.users);
-      setLoading(false);
-    })
-    .catch(err => {
-      console.log("API Error:", err);
-      setLoading(false);
-    });
-}, []);
+    // 1. THE API FETCH
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => {
+        setPosts(data.map((user, i) => ({
+          ...user,
+          skillHave: realSkills[i % realSkills.length].have,
+          skillWant: realSkills[i % realSkills.length].want,
+          rate: 30 + (i * 2)
+        })));
+      })
+      .catch(err => console.log("API Fetch failed, using fallback logic"));
 
+    // 2. THE SAFETY TIMER 
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white pt-24 pb-20">
@@ -111,12 +118,12 @@ const Browse = () => {
             >
               {posts.map((user) => (
                 <motion.div
-                  key={user._id}
+                  key={user.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -15 }}
-                  onClick={() => navigate(`/user/${user._id}`)}
+                  onClick={() => navigate(`/user/${user.id}`)}
                   className="group relative cursor-pointer"
                 >
                   <div className="relative h-[560px] rounded-[4rem] p-12 bg-white border-2 border-slate-50 group-hover:border-indigo-100 group-hover:shadow-[0_50px_100px_-20px_rgba(79,70,229,0.1)] transition-all duration-700 flex flex-col justify-between overflow-hidden">
@@ -137,7 +144,7 @@ const Browse = () => {
                           <div className="flex items-center gap-2">
                              <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div>
                              <p className="text-[10px] font-black text-slate-400 tracking-[0.2em] uppercase">
-                               ID: 2026-X{user._id?.slice(-5)}
+                               ID: 2026-X{user.id}
                              </p>
                           </div>
                         </div>

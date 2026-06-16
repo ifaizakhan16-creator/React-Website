@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -37,29 +36,11 @@ const FAQ = () => {
     }
   ];
 
-  const handleSendMessage = async (e) => {
-  e.preventDefault();
-
-  try {
-    const email = e.target[0].value;
-    const message = e.target[1].value;
-
-    const res = await axios.post("http://localhost:5000/api/contact", {
-      email,
-      message
-    });
-
-    console.log("SUCCESS:", res.data);
-
+  const handleSendMessage = (e) => {
+    e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-
-    e.target.reset();
-
-  } catch (error) {
-    console.log("ERROR:", error.response?.data || error.message);
-  }
-};
+    setTimeout(() => setSubmitted(false), 4000); // Notification disappears after 4s
+  };
 
   return (
     <div className="min-h-screen bg-white pt-32 pb-20 px-8">
