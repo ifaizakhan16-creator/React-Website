@@ -1,3 +1,8 @@
+console.log("🔥 BACKEND IS STARTING");
+console.log("🔥 SERVER FILE LOADED");
+console.log("MONGO URI:", process.env.MONGO_URI);
+
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -18,15 +23,14 @@ app.use(express.json());
 // ==========================
 // MONGODB CONNECTION
 // ==========================
-mongoose
-  .connect(process.env.MONGO_URI)
+console.log("MONGO_URI =", process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("MongoDB Connected");
+    console.log("✅ MongoDB Connected SUCCESS");
   })
   .catch((err) => {
-    console.log("MongoDB Error:", err);
+    console.log("❌ MongoDB ERROR:", err.message);
   });
-
 // ==========================
 // TEST ROUTE (IMPORTANT DEBUG)
 // ==========================
