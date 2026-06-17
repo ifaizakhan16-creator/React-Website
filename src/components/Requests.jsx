@@ -15,7 +15,7 @@ const Requests = ({ addToHistory }) => {
   const fetchRequests = async () => {
     try {
       const res = await fetch(
-        `http:///api/request/inbox/${email}`
+        fetch(`${import.meta.env.VITE_API_URL}/api/request/inbox/${email}`)
       );
 
       const data = await res.json();
