@@ -11,11 +11,12 @@ const Requests = ({ addToHistory }) => {
 
   useEffect(() => {
   const email = localStorage.getItem("email");
+  console.log("API BASE URL:", import.meta.env.VITE_API_URL);
 
   const fetchRequests = async () => {
     try {
       const res = await fetch(
-        fetch(`${import.meta.env.VITE_API_URL}/api/request/inbox/${email}`)
+        `${import.meta.env.VITE_API_URL}/api/request/inbox/${email}`
       );
 
       const data = await res.json();
