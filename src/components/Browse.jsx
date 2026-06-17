@@ -33,7 +33,7 @@ const Browse = () => {
 
 
   return (
-    <div className="min-h-screen bg-white pt-24 pb-20">
+    <div className="min-h-screen bg-white pt-20">
       
       {/* --- HERO SECTION --- */}
       <section className="py-24 px-8 bg-slate-950 text-white relative overflow-hidden">
