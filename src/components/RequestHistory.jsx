@@ -49,7 +49,7 @@ const RequestHistory = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfdfe] pt-32 pb-20 px-8">
+    <div className="min-h-screen bg-[#fcfdfe] pb-20 px-8">
       <div className="max-w-6xl mx-auto">
 
         <h1 className="text-6xl font-black text-slate-900 tracking-tighter italic mb-12">

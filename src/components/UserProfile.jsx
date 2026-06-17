@@ -41,7 +41,7 @@ useEffect(() => {
 }
 
   return (
-    <div className="min-h-screen bg-[#f8faff] pt-32 pb-20 px-6 md:px-20 relative">
+    <div className="min-h-screen bg-[#f8faff] pb-20 px-6 md:px-20 relative">
       
       {/* --- SUCCESS MODAL --- */}
       <AnimatePresence>

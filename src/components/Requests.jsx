@@ -63,7 +63,7 @@ const Requests = ({ addToHistory }) => {
 };
 
   return (
-    <div className="min-h-screen bg-[#fcfdfe] pt-32 pb-20 px-8">
+    <div className="min-h-screen bg-[#fcfdfe] pb-20 px-8">
       <div className="max-w-6xl mx-auto">
         
         {/* HEADER SECTION */}

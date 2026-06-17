@@ -56,7 +56,8 @@ const Auth = ({ onAuthSuccess }) => {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-start pt-32 bg-[#020617] overflow-hidden">
+    <div className="relative min-h-screen w-full flex flex-col items-center justify-start bg-[#020617] overflow-hidden -mt-36 pt-36">
+      <div className="relative w-full bg-[#020617] -mt-36 pt-36"></div>
       <Scene />
 
       <motion.div

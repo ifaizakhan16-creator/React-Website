@@ -59,7 +59,7 @@ const ProfileSettings = () => {
 };
 
   return (
-    <div className="min-h-screen bg-[#fcfdfe] pt-32 pb-20 px-6 relative">
+    <div className="min-h-screen bg-[#fcfdfe] pb-20 px-6 relative">
       
       {/* NAVIGATION BRIDGE */}
       <div className="max-w-6xl mx-auto mb-8">

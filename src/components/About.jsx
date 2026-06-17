@@ -9,7 +9,8 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-200 pt-32 pb-20 px-6 font-['Inter']">
+  <div className="w-full bg-[#020617] text-slate-200 overflow-x-hidden -mt-36 pt-36">
+    <div className="relative w-full bg-[#020617] -mt-36 pt-36"></div>
       <div className="max-w-7xl mx-auto space-y-40">
         
         {/* --- SECTION 1: ECOSYSTEM OVERVIEW --- */}
